@@ -1,0 +1,24 @@
+paths:
+  data_dir: /Users/charaka/Desktop/University/Msc Machine Learning & Data Science/Masters Project/app/listener/data/
+streams:
+  - start_time: 14/02/23 7:55:00
+    stream_name: Paris St-G v Bayern Munich
+    market_filter:
+      event_ids:
+        - 31894462
+      event_type_ids:
+        - 1
+      market_type_codes:
+        - MATCH_ODDS
+        - OVER_UNDER_15
+#    - OVER_UNDER_15
+  # country_codes:
+  #   - GB
+market_data_filter:
+  - EX_ALL_OFFERS
+  - EX_TRADED
+  - EX_TRADED_VOL
+  - EX_LTP
+  - EX_BEST_OFFERS_DISP
+  - EX_BEST_OFFERS
+  - EX_MARKET_DEF

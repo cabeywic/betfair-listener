@@ -1,0 +1,46 @@
+site_name: QST Template
+site_description: "QST Listener for Betfair Trading System"
+
+repo_url: https://github.com/jsg71/QST_Listener
+repo_name: jsg71/QST_Listener
+
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  name: "material"
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: "blue"
+      accent: "grey"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: "blue"
+      accent: "white"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  theme:
+    features:
+      - navigation.tabs
+
+
+plugins:
+  - search
+
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+  - section-index
+  - mkdocstrings
+
+nav:
+  - "Home" : index.md
+  - "Gen Ref Pages" : gen_ref_pages.md
+  - Code Reference: reference/ 

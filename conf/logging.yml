@@ -1,0 +1,64 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stdout
+
+    # email:
+    #     class: logging.handlers.SMTPHandler
+    #     level: ERROR
+    #     mailhost: ('smtp.sendgrid.net', 587)
+    #     fromaddr: zcabcab@ucl.ac.uk
+    #     toaddrs:
+    #         - charaka.abeywickrama@gmail.com
+    #     subject: Error Raised on BetFair Stream
+    #     credentials:
+    #         username: apikey
+    #         password: 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
+    #     secure: ()
+
+    debug_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: DEBUG
+        formatter: simple
+        filename: ../logs/info.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+        delay: True
+
+    info_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: INFO
+        formatter: simple
+        filename: ../logs/info.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+        delay: True
+
+    error_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: ERROR
+        formatter: simple
+        filename: ../logs/errors.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+        delay: True
+
+loggers:
+    betfairlightweight:
+        level: ERROR
+        handlers: [console, error_file_handler]
+
+root:
+    level: INFO
+    handlers: [console, info_file_handler, error_file_handler]

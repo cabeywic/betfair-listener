@@ -1,0 +1,17 @@
+[tool.pyright]
+include = ["src/*"]
+exclude = [
+	"**/node_modules",
+    "**/__pycache__",
+]
+venv = "venv"
+
+reportMissingImports = true
+
+pythonVersion = "3.10.8"
+pythonPlatform = "Linux"
+
+
+executionEnvironments = [
+  { root = "src/*" }
+]

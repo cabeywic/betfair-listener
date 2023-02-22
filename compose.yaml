@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+    container_name: qst-listener
+    volumes:
+      - ./data:/usr/app/data
+      - ./certs:/usr/app/certs
+    environment:
+      - CERTS_PATH=/usr/app/certs
+      - CONF_PATH=/usr/app/conf
