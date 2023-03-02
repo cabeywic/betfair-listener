@@ -96,11 +96,11 @@ class Scheduler(threading.Thread):
             # Check if any streams have ended every 90 seconds, and update the active streams list
             _active_streams = []
             for stream in self.active_streams:
-                if not self._check_stream_is_active(stream):
-                    logging.info(f"Stream {stream.streaming_unique_id} has ended...")
-                    stream.stop()
-                else:
-                    _active_streams.append(stream)
+                # if not self._check_stream_is_active(stream):
+                #     logging.info(f"Stream {stream.streaming_unique_id} has ended...")
+                #     stream.stop()
+                # else:
+                _active_streams.append(stream)
 
             self.active_streams = _active_streams
             time.sleep(90)
